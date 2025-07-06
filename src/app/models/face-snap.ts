@@ -1,12 +1,16 @@
+import { SnapType } from './snap-type.type';
 export class FaceSnapModel {
     location?: string;
+    id: string;
     constructor(
         public title: string,
         public description: string,
         public imageUrl: string,
         public createdAt: Date,
         public snaps: number,
-       ) {}
+       ) {
+        this.id = crypto.randomUUID().substring(0, 8);
+       }
    
     addSnap(): void {
         this.snaps++;
@@ -16,7 +20,22 @@ export class FaceSnapModel {
         this.snaps--;
     }
 
+    snap(snapType: SnapType) {
+        if (snapType === 'snap') {
+            this.addSnap();
+        } else if (snapType === 'unsnap') {
+            this.removeSnap();
+        } else {
+            throw new Error('Invalid snap type');
+        }
+    }
+
     setLocation(location: string): void {
         this.location = location;
+    }
+
+    withLocation(location: string): FaceSnapModel {
+        this.setLocation(location);
+        return this;
     }
 }
