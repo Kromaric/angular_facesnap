@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Snap Face</title>
+</head>
+
+<body>
+    <div class="face-snap-card" [ngClass]="{ snapped: userHasSnapped }">
+        <h2>{{ faceSnap.title }}</h2>
+        @if (faceSnap.location){
+            <p>Localisation : {{ faceSnap.location }}</p>
+        }
+        @else {
+            <p>Localisation non spécifié</p>
+        }
+        <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+        <p>{{ faceSnap.description }}</p>
+        <p>FaceSnap créée le {{ faceSnap.createdAt }}</p>
+        <p>
+            <button (click)="onSnap()">{{ snapButtonText }} </button>
+            <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">🤌 {{ faceSnap.snaps }}</span>
+        </p>
+    </div>
+</body>
+
+</html>
