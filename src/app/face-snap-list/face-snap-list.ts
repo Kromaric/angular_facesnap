@@ -17,6 +17,6 @@ export class FaceSnapList implements OnInit {
   ngOnInit() {
     this.faceSnaps = this.faceSnapsService.getFaceSanps();
   }
- 
+
 
 }

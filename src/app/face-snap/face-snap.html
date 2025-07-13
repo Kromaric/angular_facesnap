@@ -13,7 +13,7 @@
 <body>
     <div class="face-snap-card" [ngClass]="{ snapped: userHasSnapped }">
         <h2>{{ faceSnap.title | titlecase }}</h2>
-        @if (faceSnap.location){
+        <!-- @if (faceSnap.location){
             <p>Localisation : {{ faceSnap.location }}</p>
         }
         @else {
@@ -25,7 +25,8 @@
         <p>
             <button (click)="onSnap()">{{ snapButtonText }} </button>
             <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">🤌 {{ faceSnap.snaps }}</span>
-        </p>
+        </p> -->
+        <button (click)="onViewFaceSnap()">VIEW</button>
     </div>
 </body>
 
